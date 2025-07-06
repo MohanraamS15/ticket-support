@@ -4,20 +4,13 @@ const ticketSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true,
-      ref: "User", // 🔁 reference to User model
     },
-    title: {
-      type: String,
-      required: [true, "Please enter a title"],
-    },
-    description: {
-      type: String,
-      required: [true, "Please enter a description"],
-    },
+    title: String,
+    description: String,
     status: {
       type: String,
-      enum: ["open", "in progress", "closed"],
       default: "open",
     },
   },
